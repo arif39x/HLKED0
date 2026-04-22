@@ -1,0 +1,28 @@
+dll
+standard calls
+move asmuch non-standard to dlls
+
+clone.dll (all clone stuff)
+tcpip.dll (port redirect, port scan, nuke?)
+extra.dll (keylogging.. em?)
+
+Make it command driven, ie editserver add mainbot, add keylogging.
+
+before release:
+
+Port scanner clean up (replying etc)
+Port scanner timed
+Port scanner stats
+
+
+	16777217 	= 1.0.0.1
+		2130706433  	= 127.0.0.1
+		!
+		2147483649 	= 128.0.0.1
+		167772161 	= 10.0.0.1
+		!
+		184549377 	= 11.0.0.1
+		3232235521 	= 192.168.0.1
+		!
+		3238002689 	= 193.0.0.1
+	3758096382 	= 223.255.255.254

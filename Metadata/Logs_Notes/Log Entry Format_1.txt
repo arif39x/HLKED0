@@ -1,0 +1,11 @@
+
+  00h   WORD    Signature (0005h for normal phishing content, 0007h for uninterpreted raw data captured)
+  02h   WORD    Record Type
+                  0001h = visited internet domains in username@domain format
+                  0002h = basic login capture (for example Windows logon)
+                  000Eh = Internet Explorer phishing content
+                  0010h = Outlook phishing content
+  04h   DWORD   Checksum of data
+  08h   WORD    Record Size, how many bytes of data (text encoded) will follow
+
+[username_version]

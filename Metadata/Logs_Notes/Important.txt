@@ -1,0 +1,4 @@
+Do not run the atomic2.exe in it's current form !!!
+The version included in the original atomic2.zip is
+a template exe file and should be modified to be of
+use to you.

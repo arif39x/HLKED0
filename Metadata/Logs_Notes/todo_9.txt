@@ -1,0 +1,14 @@
+Done:
+- fixed some minor networking bugs
+
+Important:
+- dll injection
+- fix nofirefox crash
+- pstore (+ mass)
+- registry manager
+- irc protocol support
+
+Not so important:
+- vista compatible uninstall
+- proxy tt closing file
+- proxy tt closing sockets

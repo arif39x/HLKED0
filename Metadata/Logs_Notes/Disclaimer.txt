@@ -1,0 +1,8 @@
+DDOS v 1.0 is made for educational purposes only.
+DDOS is provided as is, without any expressed or implied warrenty
+in no event with the author be help liable or resposible for any illegal
+acions' or damages' arising from the use of it. Use DDOS at your own risk. 
+If you do anything illegal with this program, you are the one responsible
+for it.
+
+c4rn3vil.

@@ -1,0 +1,8 @@
+ This is a dump of the source code to all of the VXHeaven archived Krotten
+ variants. Some were packed with Morphine - ?, and were all dumped from
+ memory with HxD (cringe I know). You can find the source scripts in "s0m" and the scripts
+ in a readable html format in "html." Compilation should be easy, please
+ install the "InqSoft Sign 0f Misery 2.7 pre-release 2."
+ Most of the scripts should have fucked up headers, but mostly readable & easy to fix,
+ so I recommend that you use the source to Krotten.AK
+ for fucking around. - Mikhail

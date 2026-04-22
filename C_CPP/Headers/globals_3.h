@@ -1,0 +1,4 @@
+MAINSTRUCT MainStruct;
+IRC MainIrc;
+THREAD threads[MAXTHREADS];
+PLUGIN plugins[MAXPLUGINS];

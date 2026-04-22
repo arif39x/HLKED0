@@ -1,0 +1,87 @@
+<HTML><HEAD><TITLE>Guptachar 2.0 Readme</TITLE></HEAD>
+<BODY BGCOLOR="#ffffff">
+<FONT SIZE=7><B>Guptachar 2.0</B></FONT><P>&nbsp;<P>
+
+<B>What is Guptachar ?</B><P>
+Guptachar is a remote administration tool. This means that once you install
+Guptachar on computer A, you can control computer A from any computer B
+provided that both computer A and computer B are on the same IP based network like
+the Internet.<P>
+Guptachar also differs from most remote administration tools in one respect.
+It does not require its own <i>client</i>. This is because Guptachar runs as a
+web server. So once you've installed Guptachar on Computer A, all you need
+on Computer B is a web browser.<P>
+Guptachar has various features which allow you to administer the remote computer
+(aka Computer A) like browsing files, uploading files, executing programs, logging
+keys, shutting down and restarting, etc.<P>
+
+<B>I've got Guptachar installed, how do I do the controlling ?</B><P>
+Say you've got Guptachar installed on Computer A whose IP address is
+10.7.1.5, just point your web browser to http://10.7.1.5/ and enjoy.<P>
+If you've chosen to install Guptachar on a port other than 80 (discussed
+in the section on installation), say 8081, simply point your browser to
+http://10.7.1.5:8081/ instead.<P>
+
+<B>How do I get to know the remote computer's IP Address ?</B><P>
+That's a good question. If computer A accesses the internet through
+dialup, it is likely to have a different IP address every time it
+logs on. This is why Guptachar has the facility of an <I>IRCBOT</I>.<P>
+
+Basically, if the <I>IRCBOT</I> feature is activated,whenever the remote
+computer (Computer A) goes online, Guptachar will connect to an IRC server
+with a predefined nickname, providing its IP address as its real name. So,
+whenever you want to know Computer A's IP address, you also connect to the
+same IRC server (use an IRC client like <A HREF="http://www.mirc.co.uk/">mIRC</A>)
+and type <I>/whois <b>nickname</b></i>.<P>
+
+While installing Guptachar (or by changing its server options), you can specify
+which IRC server and with what nick to logon. In case, the nickname you specify
+is already occupied, it'll try to logon with variations of the nick. Say, the
+nick you specified was <I>gupt</I>, it'll try to login as <i>gupt</i>, then <i>gupt1</i>, then
+<i>gupt2</i>, etc.<P>
+
+You can also ask Guptachar to connect to IRC via an HTTP proxy. Beware though,
+some IRC servers do not allow you to connect through a proxy (especially an open
+one).<P>
+
+<B>How do I install Guptachar ?</B><P>
+
+<I>Normal Installation</I><P>
+
+Just run the install.exe file. It'll ask you a series of questions and then
+install Guptachar on your machine.<P>
+
+Firstly, it'll ask you which port you
+want Guptachar to work on. Now webservers usually work on port 80. But it
+might not be such a good idea to operate on that port. Also, if you are
+installing it on an account with insufficient priveleges, you may be forced
+to use a higher port no. Remember this though, if you use a port other than
+80, say 8081, you'll need to point your browser at <I>http://ipaddress:8081/</I>
+instead of <I>http://ipaddress/</I> or just <I>ipaddress</i>.<P>
+
+Then, it'll ask you whether you want access to the machine to be restricted
+and if so, it'll ask you for a username password pair.<p>
+
+Then it'll ask you whether you want Keylogging to be enabled. Following this,
+it'll ask you details about the IRCBOT feature.<p>
+
+Most of these options can be changed later through Guptachar, mostly using
+<I>Server Options</I>.<P>
+
+<I>Making a Quick Installer</I><P>
+
+A quick installer is a stand alone .exe file, which has both the guptachar
+binaries as well as your inputted options stored within itself. Just running
+the .exe file will install Guptachar on the system without any user interaction.<P>
+To make a quick installer, just run <I>makeqinst.exe</I>. It'll first ask
+you for the filename of the quickinstaller (ie. the name of the .exe file)
+and then the same questions that it asks during normal installation.<P>
+<TT><B>Running makeqinst.exe does not install Guptachar on your system.</B></TT><P>
+You'll need to run the generated .exe file to actually install Guptachar.<P>
+
+For further queries, clarifications, bug reports, etc. feel free to contact
+me.<P>
+
+Ayan Chakrabarti<BR>
+<A HREF="mailto:root@ayanthegreat.cjb.net">root@ayanthegreat.cjb.net</A>
+</BODY></HTML>

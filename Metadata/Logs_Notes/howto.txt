@@ -1,0 +1,12 @@
+Howto install Webpanel:
+- open config.inc in /inc/ and edit it (serverside settings)
+- upload ALL files to your webserver
+- open phpmyadmin and create the database you chose on config.inc
+- import db.sql
+-> YOU'RE DONE!
+
+Howto compile Loader:
+- Get a Delphi Compiler (Delphi 7 recommended)
+- open untSettings.pas and edit it (botside settings)
+- compile Bot
+-> YOU'RE DONE!

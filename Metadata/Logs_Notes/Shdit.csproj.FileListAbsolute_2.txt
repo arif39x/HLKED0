@@ -1,0 +1,6 @@
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\bin\x86\Release\SophSoft.exe.config
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\bin\x86\Release\SophSoft.exe
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\bin\x86\Release\SophSoft.pdb
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\obj\x86\Release\Shdit.csproj.CoreCompileInputs.cache
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\obj\x86\Release\SophSoft.exe
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\obj\x86\Release\SophSoft.pdb

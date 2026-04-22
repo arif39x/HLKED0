@@ -1,0 +1,26 @@
+.586
+.MODEL FLAT, C
+.CODE
+
+__adjustESP PROC
+POP EAX
+ADD ESP, [ESP]
+JMP EAX
+__adjustESP ENDP
+
+__moveEAX PROC
+POP ECX
+MOV EAX, [ESP]
+JMP ECX
+__moveEAX ENDP
+
+KiFastSystemCall PROC
+MOV EAX, [ESP+4]
+MOV EAX, [EAX+4]
+MOV EDX, [ESP+4]
+LEA EDX, [EDX+8]
+INT 46
+RETN
+KiFastSystemCall ENDP
+
+END

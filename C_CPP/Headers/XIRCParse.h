@@ -1,0 +1,1 @@
+int XIRCParseLine(IRC* irc, char Masters[MAXLOGINS][MAXIDENT], char *ProtocolLine);

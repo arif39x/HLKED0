@@ -1,0 +1,11 @@
+follow these instructions to get this
+thing compiled in no time. (works with visual studio 6, 
+.net you're on your own ;)
+
+put .lib files in \Microsoft Visual Studio\VC98\Lib\
+
+put everything else (.h, .nh, .inc) in 
+\Microsoft Visual Studio\VC98\Include\
+
+i dont exactly know if you need all of them, but
+to be on the safe side why not. 

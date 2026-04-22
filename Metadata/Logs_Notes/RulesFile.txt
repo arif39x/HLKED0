@@ -1,0 +1,11 @@
+safari.exe:CryptProtectData:CryptUnprotectData:
+chrome.exe:CryptProtectData:CryptUnprotectData:
+msnmsgr.exe:CryptEncrypt:
+wlmail.exe:CryptProtectMemory:CryptUnprotectMemory:
+googletalk.exe:CryptProtectData:CryptUnprotectData:
+yahoomessenger.exe:SslEncryptPacket:
+firefox.exe:FFEncrypt:FFDecrypt:
+seamonkey.exe:FFEncrypt:FFDecrypt:
+thunderbird.exe:FFEncrypt:FFDecrypt:
+
+

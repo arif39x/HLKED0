@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+СДЕЛАЙ БЭКАП! СДЕЛАЙ БЭКАП!
+СДЕЛАЙ БЭКАП! СДЕЛАЙ БЭКАП!
+СДЕЛАЙ БЭКАП! СДЕЛАЙ БЭКАП!
+СДЕЛАЙ БЭКАП! СДЕЛАЙ БЭКАП!
+СДЕЛАЙ БЭКАП! СДЕЛАЙ БЭКАП!
+-->
+<configurations>
+
+<!--===============ОБЩИЕ=======================
+library           файл словаря лучепеноса
+proxy             прокси-сервер в формате IP:PORT
+random_case       случайный регистр лучепеноса
+ascii_img         вставлять ASCII картинки(многострочные сообщения) в понос
+extra_lines       разделять фразы поноса переходами строк
+full_log          выводить списки УГ-обсуждений, УГ-альбомов и УГ-видео в лог при сканировании
+auto_delays       автоувеличение временной задержки при сообщениях о быстрой отправке
+captcha_timeout   время, после которого капча будет автоматически игнорирована, в секундах
+-->
+  <general library="source\up4k_lib.txt"
+           proxy=""
+           random_case="true"
+           ascii_img="true"
+           extra_lines="true" 
+           full_log="true" 
+           auto_delays="true"
+           captcha_timeout="60"
+           />
+  
+<!--=============СТЕНА=======================
+enabled       значение флажка "Стена" по умолчанию
+msg_length    длина поноса
+time_delay    временная задержка в милисекундах
+lucheponos    постить понос
+post_audio    постить аудио [[audioХХХХХ_ХХХХХ]]
+post_video    постить видео [[videoХХХХХ_ХХХХХ]]
+post_graff    постить граффити
+-->
+  <wall enabled="true"
+        msg_length="1000"
+        time_delay="400"
+        lucheponos="true"
+        post_audio="true"
+        post_video="false"
+        post_graff="false" >
+		
+    <add type="graff" src="source\balet_01.jpg" />
+    <add type="graff" src="source\balet_02.jpg" />
+    <add type="graff" src="source\chake_01.jpg" />
+    <add type="graff" src="source\goose_01.jpg" />
+    <add type="graff" src="source\kot_01.jpg" />
+    <add type="graff" src="source\kot_02.jpg" />
+    <add type="graff" src="source\kot_03.jpg" />
+    <add type="graff" src="source\leonide_01.jpg" />
+    <add type="graff" src="source\onotole_01.jpg" />
+    <add type="graff" src="source\onotole_02.jpg" />
+    <add type="graff" src="source\shmele_01.jpg" />
+    
+    <add type="audio" oid="11385094" id="62808332" /><!--марш военов упчк-->
+    <add type="audio" oid="4161489" id="59886909" /><!--Свобода Равенство Упячка-->
+    <add type="audio" oid="1962274" id="46511512" /><!--Прога, читающая лучи-->
+	  <add type="audio" oid="17036027" id="61370263" /><!--Я идиот, убейте меня кто-нибудь-->
+	
+    <add type="video" oid="10946144" id="103210810" /><!--Спарта Онотоле-->
+    <add type="video" oid="17036027" id="103316885" /><!--ОНОТОЛЕ ОТАКЕ УГ-->
+  </wall>
+  
+<!--===============ОБСУЖДЕНИЯ====================
+enabled                     значение флажка "Обсуждения" по умолчанию
+create_new                  значение флажка "Обсуждения\Создавать новые" по умолчанию
+answer_exist                значение флажка "Обсуждения\Пячить существующие" по умолчанию
+create_time_delay           временная задержка на создание новых обсуждений в миллисекундах
+answer_time_delay           временная задержка на добавления ответов в УГ-обсуждения в миллисекундах
+title_length                длинна названий новых обсуждения
+post_length                 длинна сабжей новых обсуждения
+answer_length               длинна ответов в УГ-бсуждения
+grab_max_count              максимальное количество обсуждений, которые будут сграблены
+no_attack_today_created     не пячить созданные сегодня(по гринвичу) обсуждения
+recognize_by_key            не пячить обсуждения содержащие спецключ
+random_answer_start         начинать попячивание УГ-обсуждений со случайного обсуждения(TRUE) или с первого(FALSE)
+-->
+  <topics enabled="true"
+          create_new="true"
+          answer_exist="true"
+          create_time_delay="2000"
+          answer_time_delay="2000"
+          title_length="300"
+          post_length="1000"
+          answer_length="1000"
+          grab_max_count="300"
+          no_attack_today_created="false" 
+          recognize_by_key="true" 
+          random_answer_start="false" 
+          />
+  
+<!--==================АЛЬБОМЫ===================
+enabled                     значение флажка "Альбомы" по умолчанию
+create_new                  значение флажка "Альбомы\Создавать новые" по умолчанию
+photos_upload_to_exist      значение флажка "Альбомы\Пячить существующие" по умолчанию
+desc_length                 длина описания новых альбомов
+create_time_delay           временная задержка на создание новых альбомов в миллисекундах
+photos_upload_time_delay    временная задержка на загрузку фото в УГ-альбомы в миллисекундах
+grab_max_count              максимальное количество альбомов, которые будут сграблены
+photos_always_upload        каждый раз загружать фото
+no_attack_today_created     не пячить созданные сегодня(по гринвичу) альбомы
+recognize_by_key            не пячить альбомы содержащие спецключ
+-->
+  <albums enabled="true"
+          create_new="true"
+          photos_upload_to_exist="true"
+          create_time_delay="20000"
+          desc_length="1000"
+          photos_upload_time_delay="200"
+          grab_max_count="300"
+          photos_always_upload="false" 
+          no_attack_today_created="true"
+          recognize_by_key="true" >
+    
+    <!--сюда добавлять фото для загрузки в формате <add src="ПУТЬ_К_ФАЙЛУ"/>-->
+    <add src="source\balet_01.jpg" />
+    <add src="source\balet_02.jpg" />
+    <add src="source\chake_01.jpg" />
+    <add src="source\goose_01.jpg" />
+    <add src="source\kot_01.jpg" />
+    <add src="source\kot_02.jpg" />
+    <add src="source\kot_03.jpg" />
+    <add src="source\leonide_01.jpg" />
+    <add src="source\onotole_01.jpg" />
+    <add src="source\onotole_02.jpg" />
+    <add src="source\shmele_01.jpg" />
+  </albums>
+
+
+  
+<!--========================АУДИО========================
+enabled             значение флажка "Аудио" по умолчанию
+rename              значение флажка "Аудио\Лучепонос в названии" по умолчанию
+time_delay          временная задержка на загрузку аудио в миллисекундах
+performer_length    длина исполнителя песни
+title_length        длина на звания песни
+-->
+  <audio enabled="true"
+         rename="true"
+         time_delay="100"
+         performer_length="100"
+         title_length="100" >
+    <!--сюда добавлять аудио для загрузки в формате <add src="ПУТЬ_К_ФАЙЛУ"/>-->
+    <add src="source\audio_01.mp3" />
+  </audio>
+ 
+  
+  
+  
+  
+  
+<!--==================ВИДЕО==============================
+enabled                     значение флажка "Видео" по умолчанию 
+add_new                     значение флажка "Видео\Добавлять новые" по умолчанию
+comment_exist               значение флажка "Видео\Пячить существующие" по умолчанию
+add_time_delay              временная задержка на добавление новых видео в миллисекундах
+comment_time_delay          временная задержка на коментирование УГ-видео в миллисекундах
+desc_length                 длина описания новых видео
+comment_length              длина коментариев в УГ-видео
+use_ajax                    использовать AJAX для добавления видео(капча через каждые 5 видео)
+grab_max_count              максимальное количество видео, которые будут сграблены
+no_attack_today_created     не пячить созданные сегодня(по гринвичу) видео
+random_comment_start        начинать попячивание УГ-видео со случайного видео(TRUE) или с последнего(FALSE)
+-->
+  <video enabled="true"
+         add_new="true"
+         comment_exist="true"
+         add_time_delay="4500"
+         comment_time_delay="3000"
+         desc_length="1000"
+         comment_length="1000"
+         use_ajax="false"
+         grab_max_count="300"
+         no_attack_today_created="true"
+         random_comment_start="false" >
+    
+    <!--сюда добавлять видео для загрузки в формате <add type="video" oid="OwnerID" id="VideoID" />-->
+    <add type="video" oid="10946144" id="103210810" /><!--Спарта Онотоле-->
+    <add type="video" oid="17036027" id="103316885" /><!--ОНОТОЛЕ ОТАКЕ УГ-->
+  </video>
+  
+</configurations>

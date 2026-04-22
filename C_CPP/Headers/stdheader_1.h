@@ -1,0 +1,14 @@
+#include <windows.h>
+#include <winsock2.h>
+#include <wininet.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <shellapi.h>
+#include <ws2tcpip.h>
+#include <vfw.h>
+#include <sql.h>
+#include <sqlext.h>
+#include <winnetwk.h>
+#include <psapi.h>
+#include <urlmon.h>
+#include <time.h>

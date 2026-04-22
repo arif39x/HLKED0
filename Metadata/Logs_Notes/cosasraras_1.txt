@@ -1,0 +1,6 @@
+[26-Mar-2013 17:09:19 UTC] PHP Warning:  file(losusers848.txt): failed to open stream: No such file or directory in C:\Users\Anexus\Desktop\Monster Worm 3.0 vender\public_html\Monster.php on line 50
+[26-Mar-2013 17:15:08 UTC] PHP Warning:  file(losusers848.txt): failed to open stream: No such file or directory in C:\Users\Anexus\Desktop\Monster Worm 3.0 vender\public_html\Monster.php on line 50
+192.168.1.2   ID=create&hwid=;933333<:994659&ver=3.0
+192.168.1.2   ID=create&hwid=;933333<:994659&ver=3.0
+192.168.1.2   ID=create&hwid=;933333<:994659&ver=3.0
+192.168.1.2   ID%3Dcreate%26hwid%3D%3B933333%3C%3A994659%26ver%3D3%2E0

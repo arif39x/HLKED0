@@ -1,0 +1,21 @@
+
+ Source Code of Sinowal
+ 
+   Version 13.8 [Shared Source]
+   Friday, 9th January 2009
+   (C) 2006 - 2009 Vienna Computer Products, RockPhish Group
+ 
+ The source code of the forensic lockdown software is published under the ToasterOS General Public License.
+ This permitts any modification, publishing, using, re-using, coyping of the source code. Just see, learn, don't copy.
+ The owner with all rights of the source code is Peter Kleissner and the RockPhish Group.
+ 
+ If you have any questions please contact Peter Kleissner.
+ 
+ Vladimir Kuznetsov
+ Head of RockPhish Group
+ Saint-Petersburg
+ Sadovaya Street 10
+ 
+ Peter Kleissner
+ Vienna Computer Products
+ 

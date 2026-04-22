@@ -1,0 +1,8 @@
+[Text]
+Normal=#9090ff
+Current=#FFFFFF
+NormalBG=#181664
+SelectedBG=#000000
+Font=Arial
+
+''DataSpy Amp 2K

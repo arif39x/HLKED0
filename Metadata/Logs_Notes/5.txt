@@ -1,0 +1,4 @@
+cmd
+echo hey > c:\hey.txt
+0
+0

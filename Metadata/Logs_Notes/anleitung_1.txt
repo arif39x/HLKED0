@@ -1,0 +1,1 @@
+rechtsklick auf die exe -> browse in .net reactor -> dann hast du so ein feld darunter steht add -> fügst du die 3 dlls hinzu wählst merge assemblies an... unterhalb noch "obfuscation" und "native binary"

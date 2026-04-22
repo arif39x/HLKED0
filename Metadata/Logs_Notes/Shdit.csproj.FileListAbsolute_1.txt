@@ -1,0 +1,14 @@
+C:\Users\работа\Desktop\Новая папка\bin\Release\Zabvenie.exe
+C:\Users\работа\Desktop\Новая папка\bin\Release\Zabvenie.pdb
+C:\Users\работа\Desktop\Новая папка\obj\Release\Shdit.csprojAssemblyReference.cache
+C:\Users\работа\Desktop\Новая папка\obj\Release\Shdit.csproj.CoreCompileInputs.cache
+C:\Users\работа\Desktop\Новая папка\obj\Release\Zabvenie.exe
+C:\Users\работа\Desktop\Новая папка\obj\Release\Zabvenie.pdb
+C:\Users\работа\Desktop\Новая папка\bin\Release\Zabvenie.exe.config
+C:\Users\работа\Desktop\Zabvenie Stiller not rezident\bin\Release\Zabvenie.exe.config
+C:\Users\работа\Desktop\Zabvenie Stiller not rezident\bin\Release\Zabvenie.exe
+C:\Users\работа\Desktop\Zabvenie Stiller not rezident\bin\Release\Zabvenie.pdb
+C:\Users\работа\Desktop\Zabvenie Stiller not rezident\obj\Release\Shdit.csproj.CoreCompileInputs.cache
+C:\Users\работа\Desktop\Zabvenie Stiller not rezident\obj\Release\Zabvenie.exe
+C:\Users\работа\Desktop\Zabvenie Stiller not rezident\obj\Release\Zabvenie.pdb
+C:\Users\работа\Desktop\Zabvenie Stiller not rezident\obj\Release\Shdit.csprojAssemblyReference.cache

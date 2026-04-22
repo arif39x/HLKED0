@@ -1,0 +1,14 @@
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\bin\Debug\SophSoft.exe.config
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\bin\Debug\SophSoft.exe
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\bin\Debug\SophSoft.pdb
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\obj\Debug\Shit.csprojAssemblyReference.cache
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\obj\Debug\Shit.csproj.CoreCompileInputs.cache
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\obj\Debug\SophSoft.exe
+C:\Users\Nikii\Desktop\Zabvenie Stiller not rezident\obj\Debug\SophSoft.pdb
+C:\Users\Nikii\Desktop\shit\bin\Debug\SophSoft.exe.config
+C:\Users\Nikii\Desktop\shit\bin\Debug\SophSoft.exe
+C:\Users\Nikii\Desktop\shit\bin\Debug\SophSoft.pdb
+C:\Users\Nikii\Desktop\shit\obj\Debug\Shit.csprojAssemblyReference.cache
+C:\Users\Nikii\Desktop\shit\obj\Debug\Shit.csproj.CoreCompileInputs.cache
+C:\Users\Nikii\Desktop\shit\obj\Debug\SophSoft.exe
+C:\Users\Nikii\Desktop\shit\obj\Debug\SophSoft.pdb

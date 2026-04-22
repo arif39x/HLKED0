@@ -1,0 +1,17 @@
+C:\Users\JeFFF\Desktop\evrialSource\Shdit\obj\Debug\mg3okeg1mum.exe
+C:\Users\JeFFF\Desktop\evrialSource\Shdit\obj\Debug\mg3okeg1mum.pdb
+C:\Users\JeFFF\Desktop\evrialSource\Shdit\bin\Debug\mg3okeg1mum.exe
+C:\Users\JeFFF\Desktop\evrialSource\Shdit\bin\Debug\mg3okeg1mum.pdb
+C:\Users\JeFFF\Desktop\evrialSource\Shdit\obj\Debug\Shdit.csprojResolveAssemblyReference.cache
+C:\Users\ivan\Desktop\Новая папка\obj\Debug\Shdit.csprojAssemblyReference.cache
+C:\Users\ivan\Desktop\Новая папка\obj\Debug\Shdit.csproj.CoreCompileInputs.cache
+C:\Users\ivan\Desktop\Новая папка\bin\Debug\Zabvenie.exe
+C:\Users\ivan\Desktop\Новая папка\bin\Debug\Zabvenie.pdb
+C:\Users\ivan\Desktop\Новая папка\obj\Debug\Zabvenie.exe
+C:\Users\ivan\Desktop\Новая папка\obj\Debug\Zabvenie.pdb
+C:\Users\работа\Desktop\Новая папка\obj\Debug\Shdit.csprojAssemblyReference.cache
+C:\Users\работа\Desktop\Новая папка\obj\Debug\Shdit.csproj.CoreCompileInputs.cache
+C:\Users\работа\Desktop\Новая папка\obj\Debug\Zabvenie.exe
+C:\Users\работа\Desktop\Новая папка\obj\Debug\Zabvenie.pdb
+C:\Users\работа\Desktop\Новая папка\bin\Debug\Zabvenie.exe
+C:\Users\работа\Desktop\Новая папка\bin\Debug\Zabvenie.pdb
